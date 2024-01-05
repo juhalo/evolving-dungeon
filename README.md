@@ -48,6 +48,8 @@ Go to tests/ and then type the following:
 3. cd build
 4. ctest --rerun-failed --output-on-failure
 
+Valgrind checks are commented about at the folder tests/ as well.
+
 ## Source Code Documentation
 
 Doxygen was used for documentation and creation of the pdf. The generated pdf file can be found under the doc/ folder.
