@@ -1,11 +1,4 @@
-BasedOnStyle: Google
-AccessModifierOffset: '-4'
-AlignConsecutiveAssignments: 'true'
-AlignConsecutiveDeclarations: 'true'
-AllowShortFunctionsOnASingleLine: None
-AllowShortIfStatementsOnASingleLine: Never
-AllowShortLoopsOnASingleLine: 'false'
-BinPackArguments: 'false'
-BreakBeforeBraces: Allman
-IndentCaseLabels: 'false'
-IndentWidth: '4'
+BasedOnStyle: WebKit
+AlignAfterOpenBracket: Align
+# AlignConsecutiveAssignments: 'true'
+# AlignConsecutiveDeclarations: 'true'
