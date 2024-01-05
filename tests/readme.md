@@ -2,24 +2,24 @@
 
 ## Test Case/Suit: HelloTest
 
-**Test suit description: Does not currently exist**
+**Test suit description: Make sure that libraries and files get loaded correctly**
 
-### Test: Lirum Larum 1
-
-**Involved Classes: None**
-
-**Test File: None**
-
-**Description: None**
-
-**Results: Unknown**
-
-### Test: Lirum Larum 2
+### Test: BasicAssertions
 
 **Involved Classes: None**
 
-**Test File: None**
+**Test File: DungeonGenericTests.cpp**
 
-**Description: None**
+**Description: Make sure that googletest works**
 
-**Results: Unknown**
+**Results: All passed**
+
+### Test: SFMLLoading
+
+**Involved Classes: None**
+
+**Test File: DungeonGenericTests.cpp**
+
+**Description: Make sure that SFML loads correctly**
+
+**Results: All passed**
