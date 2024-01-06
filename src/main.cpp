@@ -4,7 +4,7 @@
 
 int main()
 {
-    bool loadedCorrectly = ED::Textures::loadTextures();
+    bool loadedCorrectly = ED::Texture::loadTextures();
     std::cout << "Loading: " << loadedCorrectly << std::endl;
     ED::System::Menu menu = ED::System::Menu();
 

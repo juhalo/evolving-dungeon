@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 namespace ED {
-namespace Textures {
+namespace Texture {
     /**
      * @brief Font used
      *
@@ -16,5 +16,5 @@ namespace Textures {
      * @return Whether or not the textures were loaded successfully
      */
     bool loadTextures();
-}
-}
+} // namespace Texture
+} // namespace ED

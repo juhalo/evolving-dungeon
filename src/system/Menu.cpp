@@ -26,5 +26,5 @@ namespace System {
     {
         return m_window->isOpen();
     }
-}
-}
+} // namespace System
+} // namespace ED

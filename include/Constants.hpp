@@ -31,5 +31,5 @@ namespace Constant {
      *
      */
     static std::string gameName = "Evolving Dungeon";
-}
-}
+} // namespace Constant
+} // namespace ED

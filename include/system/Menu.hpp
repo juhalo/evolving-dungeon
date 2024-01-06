@@ -51,5 +51,5 @@ namespace System {
          */
         sf::Event m_event;
     };
-}
-}
+} // namespace System
+} // namespace ED

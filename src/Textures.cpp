@@ -1,7 +1,7 @@
 #include "Textures.hpp"
 
 namespace ED {
-namespace Textures {
+namespace Texture {
     sf::Font font;
 
     bool loadTextures()
@@ -11,5 +11,5 @@ namespace Textures {
         }
         return true;
     }
-}
-}
+} // namespace Texture
+} // namespace ED
