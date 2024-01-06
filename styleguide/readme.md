@@ -6,6 +6,7 @@ The project mostly uses [WebKit Code Style Guidelines](https://webkit.org/code-s
 
 - [File Names](#file-names)
 - [Namespaces](#namespaces)
+- [Formatting](#formatting)
 
 ## File Names
 
@@ -26,3 +27,7 @@ Other rules:
 
 1. Namespaces must be either abbreviations or their names must be singular instead of a plural
 2. Namespaces must start with a capitalized letter and every letter in an abbreviation must be capitalized (from WebKit)
+
+## Formatting
+
+Contrary to WebKit's style, after open bracket, aligning is performed.
