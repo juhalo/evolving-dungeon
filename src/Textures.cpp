@@ -2,13 +2,15 @@
 
 namespace ED {
 namespace Texture {
-    sf::Font font;
+    std::shared_ptr<sf::Font> font;
 
     bool loadTextures()
     {
-        if (!font.loadFromFile("resources/fonts/PressStart2P.ttf")) {
+        sf::Font temp;
+        if (!temp.loadFromFile("resources/fonts/PressStart2P.ttf")) {
             return false;
         }
+        font = std::make_shared<sf::Font>(temp);
         return true;
     }
 } // namespace Texture

@@ -8,7 +8,7 @@ namespace Texture {
      * @brief Font used
      *
      */
-    extern sf::Font font;
+    extern std::shared_ptr<sf::Font> font;
 
     /**
      * @brief Load the textures for the game
