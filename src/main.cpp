@@ -5,12 +5,15 @@
 int main()
 {
     bool loadedCorrectly = ED::Texture::loadTextures();
-    std::cout << "Loading: " << loadedCorrectly << std::endl;
+    if (!loadedCorrectly) {
+        std::cerr << "Error: Failed to load textures" << std::endl;
+        return EXIT_FAILURE;
+    }
     ED::System::Menu menu = ED::System::Menu();
 
     while (menu.isRunning()) {
         menu.menuLoop();
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
