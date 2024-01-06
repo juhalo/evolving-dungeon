@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Constants.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 

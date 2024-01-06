@@ -1,7 +1,7 @@
 #include "system/Menu.hpp"
 
 Menu::Menu()
-    : m_window(std::shared_ptr<sf::RenderWindow>(new sf::RenderWindow { sf::VideoMode(sf::Vector2u(200, 200)), "Evolving Dungeon" }))
+    : m_window(std::shared_ptr<sf::RenderWindow>(new sf::RenderWindow { sf::VideoMode(sf::Vector2u(ed::windowWidth, ed::windowHeight)), ed::gameName }))
 {
 }
 
