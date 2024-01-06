@@ -6,7 +6,7 @@
  * @brief Constants for the evolving dungeon game
  *
  */
-namespace ed {
+namespace ED {
 namespace Constant {
     /**
      * @brief Height of the window

@@ -1,6 +1,6 @@
 #include "system/Menu.hpp"
 
-namespace ed {
+namespace ED {
 namespace System {
     Menu::Menu()
         : m_window(std::shared_ptr<sf::RenderWindow>(new sf::RenderWindow { sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName }))

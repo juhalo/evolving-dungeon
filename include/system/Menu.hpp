@@ -8,7 +8,7 @@
  * @brief Handles the main menu
  *
  */
-namespace ed {
+namespace ED {
 namespace System {
     class Menu {
     public:

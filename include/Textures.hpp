@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace ed {
+namespace ED {
 namespace Textures {
     /**
      * @brief Font used

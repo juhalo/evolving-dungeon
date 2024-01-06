@@ -1,6 +1,6 @@
 #include "Textures.hpp"
 
-namespace ed {
+namespace ED {
 namespace Textures {
     sf::Font font;
 

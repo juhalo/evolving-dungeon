@@ -4,9 +4,9 @@
 
 int main()
 {
-    bool loadedCorrectly = ed::Textures::loadTextures();
+    bool loadedCorrectly = ED::Textures::loadTextures();
     std::cout << "Loading: " << loadedCorrectly << std::endl;
-    ed::System::Menu menu = ed::System::Menu();
+    ED::System::Menu menu = ED::System::Menu();
 
     while (menu.isRunning()) {
         menu.menuLoop();
