@@ -1,11 +1,15 @@
 #include "Textures.hpp"
 
-sf::Font ed::Textures::font;
+namespace ed {
+namespace Textures {
+    sf::Font font;
 
-bool ed::Textures::loadTextures()
-{
-    if (!font.loadFromFile("resources/fonts/PressStart2P.ttf")) {
-        return false;
+    bool loadTextures()
+    {
+        if (!font.loadFromFile("resources/fonts/PressStart2P.ttf")) {
+            return false;
+        }
+        return true;
     }
-    return true;
+}
 }

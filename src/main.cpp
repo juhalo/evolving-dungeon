@@ -6,7 +6,7 @@ int main()
 {
     bool loadedCorrectly = ed::Textures::loadTextures();
     std::cout << "Loading: " << loadedCorrectly << std::endl;
-    Menu menu = Menu();
+    ed::System::Menu menu = ed::System::Menu();
 
     while (menu.isRunning()) {
         menu.menuLoop();
