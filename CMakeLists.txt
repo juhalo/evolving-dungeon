@@ -25,4 +25,9 @@ if(WIN32)
         VERBATIM)
 endif()
 
+# Add fonts
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                   ${CMAKE_SOURCE_DIR}/resources/fonts $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources/fonts)
+
 install(TARGETS ${PROJECT_NAME})
