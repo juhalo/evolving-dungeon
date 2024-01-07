@@ -32,6 +32,22 @@ void Menu::pollEvent()
                 m_window->close();
                 break;
             }
+        case sf::Event::MouseButtonPressed:
+            const sf::Vector2i& clickPosition = sf::Mouse::getPosition(*m_window);
+            auto isClickable = [=](Button i) { return i.clickButton(clickPosition); };
+            auto it = std::find_if(m_UI.begin(), m_UI.end(), isClickable);
+            if (it != m_UI.end()) {
+                switch (it->type()) {
+                case Constant::ButtonType::quitToDesktop:
+                    m_window->close();
+                    break;
+                case Constant::ButtonType::startGame:
+                    break; // FIXME: Start a game if this button is clicked
+                default: // Do nothing;
+                    break;
+                }
+            }
+            break;
         }
     }
 }
