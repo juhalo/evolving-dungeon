@@ -49,5 +49,29 @@ private:
      *
      */
     sf::Event m_event;
+
+    /**
+     * @brief Holds the UI of the menu
+     *
+     */
+    sf::CircleShape m_UI;
+
+    /**
+     * @brief Handle input events inside the menu
+     *
+     */
+    void pollEvent();
+
+    /**
+     * @brief Draw menu's UI
+     *
+     */
+    void drawUI();
+
+    /**
+     * @brief Render the menu screen
+     *
+     */
+    void render();
 };
 } // namespace ED::System
