@@ -6,8 +6,7 @@
  * @brief Constants for the evolving dungeon game
  *
  */
-namespace ED {
-namespace Constant {
+namespace ED::Constant {
     /**
      * @brief Height of the window
      *
@@ -43,5 +42,4 @@ namespace Constant {
         quitToMenu,
         quitToDesktop,
     };
-} // namespace Constant
-} // namespace ED
+} // namespace ED::Constant

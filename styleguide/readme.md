@@ -4,9 +4,9 @@ The project mostly uses [WebKit Code Style Guidelines](https://webkit.org/code-s
 
 ## Table of Contents
 
-- [File Names](#file-names)
-- [Namespaces](#namespaces)
-- [Formatting](#formatting)
+-   [File Names](#file-names)
+-   [Namespaces](#namespaces)
+-   [Formatting](#formatting)
 
 ## File Names
 
@@ -27,7 +27,28 @@ Other rules:
 
 1. Namespaces must be either abbreviations or their names must be singular instead of a plural
 2. Namespaces must start with a capitalized letter and every letter in an abbreviation must be capitalized (from WebKit)
+3. If all of the code inside a file is inside a namespace that is inside another namespace (for example, all code resides inside OuterNameSpace::InnerNamespace), it is written as
+
+```
+namespace OuterNameSpace::InnerNamespace {
+...
+} // namespace OuterNameSpace::InnerNamespace
+```
+
+instead of
+
+```
+namespace OuterNameSpace {
+namespace InnerNamespace {
+...
+} // namespace InnerNamespace
+} // namespace OuterNameSpace
+```
 
 ## Formatting
 
 Contrary to WebKit's style, after open bracket, aligning is performed.
+
+```
+
+```
