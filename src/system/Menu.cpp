@@ -38,7 +38,8 @@ void Menu::pollEvent()
 
 void Menu::drawUI()
 {
-    m_window->draw(m_UI);
+    for (auto& element : m_UI)
+        m_window->draw(element);
 }
 
 void Menu::render()
@@ -50,8 +51,16 @@ void Menu::render()
 
 void Menu::initializeUI()
 {
-    m_UI = sf::CircleShape(100.f);
-    m_UI.setFillColor(sf::Color::Green);
+    sf::Vector2u windowSize = m_window->getSize();
+    float numOfElements = 2;
+    unsigned y = windowSize.y;
+    unsigned x = windowSize.x;
+    float middleY = y / (2 * numOfElements);
+    float middleX = x / 2;
+    unsigned i = 0;
+
+    m_UI.push_back(Button("Start a new game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::startGame));
+    m_UI.push_back(Button("Quit game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::quitToDesktop));
 }
 
 } // namespace ED::System

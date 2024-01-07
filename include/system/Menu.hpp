@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.hpp"
+#include "system/Button.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
@@ -54,7 +55,8 @@ private:
      * @brief Holds the UI of the menu
      *
      */
-    sf::CircleShape m_UI;
+    // Button m_UI;
+    std::vector<Button> m_UI;
 
     /**
      * @brief Handle input events inside the menu
