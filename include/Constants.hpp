@@ -31,5 +31,17 @@ namespace Constant {
      *
      */
     static std::string gameName = "Evolving Dungeon";
+
+    /**
+     * @brief Types of buttons
+     *
+     */
+    enum class ButtonType {
+        none,
+        startGame,
+        unpauseGame,
+        quitToMenu,
+        quitToDesktop,
+    };
 } // namespace Constant
 } // namespace ED
