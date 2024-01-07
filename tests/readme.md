@@ -8,6 +8,8 @@
 
 **Involved Classes: None**
 
+**Involved Namespaces: None**
+
 **Test File: DungeonGenericTests.cpp**
 
 **Description: Make sure that googletest works**
@@ -18,9 +20,39 @@
 
 **Involved Classes: None**
 
+**Involved Namespaces: sf**
+
 **Test File: DungeonGenericTests.cpp**
 
 **Description: Make sure that SFML loads correctly**
+
+**Results: All passed**
+
+### Test: StaticFileLoading
+
+**Involved Classes: None**
+
+**Involved Namespaces: sf, ED**
+
+**Test File: DungeonCrawlerTests.cpp**
+
+**Description: Make sure that evolved dungeon files work and textures/sounds get loaded**
+
+**Results: All passed**
+
+## Test Case/Suit: ButtonTest
+
+**Test suit description: Test Button class**
+
+### Test: BasicProperties
+
+**Involved Classes: Button**
+
+**Involved Namespaces: sf, ED, ED::System**
+
+**Test File: DungeonGenericTests.cpp**
+
+**Description: Check basic properties of Button class**
 
 **Results: All passed**
 

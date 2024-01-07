@@ -19,7 +19,7 @@ enable_testing()
 add_subdirectory(../libs/SFML ./libs/SFML)
 
 # Add all .cpp, - files under src/ directory
-file(GLOB SOURCES_CPP CONFIGURE_DEPENDS "../src/*.cpp" "src/system/*.cpp")
+file(GLOB SOURCES_CPP CONFIGURE_DEPENDS "../src/*.cpp" "../src/system/*.cpp")
 # Remove main.cpp since googletest already has this defined, all of these are added to make sure it stays away
 list(REMOVE_ITEM SOURCES_CPP ${CMAKE_SOURCE_DIR}/../src/main.cpp)
 list(REMOVE_ITEM SOURCES_CPP ${CMAKE_CURRENT_SOURCE_DIR}/../src/main.cpp)
