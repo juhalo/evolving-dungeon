@@ -32,6 +32,12 @@ namespace System {
         ~Button();
 
         /**
+         * @brief Calculate the position of the button's box and text
+         *
+         */
+        void calcPosition();
+
+        /**
          * @brief Get the position of the button
          *
          * @return Current position of the button
@@ -51,6 +57,34 @@ namespace System {
          * @return Type of the button
          */
         Constant::ButtonType type() const;
+
+        /**
+         * @brief Set the type of the button
+         *
+         * @param type The new type of the button
+         */
+        void setType(Constant::ButtonType);
+
+        /**
+         * @brief Get the size of the button
+         *
+         * @return Size of the button
+         */
+        sf::Vector2f size() const;
+
+        /**
+         * @brief Set the button's text's string
+         *
+         * @param string The new button's text's string
+         */
+        void setString(std::string);
+
+        /**
+         * @brief Get the button's text's string
+         *
+         * @return Button's text's string
+         */
+        std::string string() const;
 
         /**
          * @brief
