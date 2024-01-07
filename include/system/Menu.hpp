@@ -73,5 +73,11 @@ private:
      *
      */
     void render();
+
+    /**
+     * @brief Initialize the UI of the menu screen
+     *
+     */
+    void initializeUI();
 };
 } // namespace ED::System

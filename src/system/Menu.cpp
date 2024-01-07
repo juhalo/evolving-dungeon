@@ -3,9 +3,8 @@
 namespace ED::System {
 Menu::Menu()
     : m_window(std::make_shared<sf::RenderWindow>(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName))
-    , m_UI(sf::CircleShape(100.f))
 {
-    m_UI.setFillColor(sf::Color::Green);
+    initializeUI();
 }
 
 Menu::~Menu() { }
@@ -24,8 +23,16 @@ bool Menu::isRunning() const
 void Menu::pollEvent()
 {
     while (m_window->pollEvent(m_event)) {
-        if (m_event.type == sf::Event::Closed)
+        switch (m_event.type) {
+        case sf::Event::Closed:
             m_window->close();
+            break;
+        case sf::Event::KeyPressed:
+            if (m_event.key.code == sf::Keyboard::Key::Delete) {
+                m_window->close();
+                break;
+            }
+        }
     }
 }
 
@@ -39,6 +46,12 @@ void Menu::render()
     m_window->clear();
     drawUI();
     m_window->display();
+}
+
+void Menu::initializeUI()
+{
+    m_UI = sf::CircleShape(100.f);
+    m_UI.setFillColor(sf::Color::Green);
 }
 
 } // namespace ED::System
