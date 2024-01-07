@@ -101,12 +101,6 @@ private:
     sf::Text m_text;
 
     /**
-     * @brief Font of the text
-     *
-     */
-    sf::Font m_font;
-
-    /**
      * @brief Position of the button
      *
      */
