@@ -31,7 +31,7 @@ You may also clone it normally and then run the command "git submodule init" fol
 
 Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to main branch (in other words, the project follows a very simple, github flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, if necessary. If there is a need for a more complex workflow, such as git-flow, this will change.
 
-The coding style guide followed is the [SFML Code Style Guide](https://www.sfml-dev.org/style.php) to make it consistent with the major library used throughout the project. The project might also use WebKit style guide or Google C++ style guide etc. to fill in some blanks. These will (most likely) be documented here in the future. The file .clang-format specifies the formatting and it is currently based on Google's style but has appropriate changes to change it to be closer compared the SFML Code Style.
+The coding style guide followed is the [WebKit Code Style Guidelines](https://www.sfml-dev.org/style.php) and it might use elements from [SFML Code Style Guide](https://www.sfml-dev.org/style.php) to make it consistent with the major library used throughout the project. The project might also use Google C++ style guide etc. to fill in some blanks. These changes are documented in the styleguide/ folders readme.
 
 Github Projects is used together with issues for organizing different parts that are planned to be completed.
 
@@ -48,8 +48,12 @@ Go to tests/ and then type the following:
 3. cd build
 4. ctest --rerun-failed --output-on-failure
 
+Valgrind checks are commented about at the folder tests/ as well.
+
 ## Source Code Documentation
 
 Doxygen was used for documentation and creation of the pdf. The generated pdf file can be found under the doc/ folder.
 
 ## Credits
+
+Font used by Cody "CodeMan38" Boisclair under the SIL Open Font License, Version 1.1, from [here](https://www.zone38.net/font/)

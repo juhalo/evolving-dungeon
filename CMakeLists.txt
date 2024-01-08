@@ -5,10 +5,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 # Add all .cpp, - files under src/ directory
-file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp")
+file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cpp" "src/system/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
-# target_include_directories((${PROJECT_NAME} PRIVATE include))
+target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 add_subdirectory(libs/SFML)
 # set(SFML_DIR "libs/SFML/")
@@ -24,5 +24,10 @@ if(WIN32)
         PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:${PROJECT_NAME}>
         VERBATIM)
 endif()
+
+# Add fonts
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                   ${CMAKE_SOURCE_DIR}/resources/fonts $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources/fonts)
 
 install(TARGETS ${PROJECT_NAME})

@@ -1,24 +1,19 @@
-#include <SFML/Graphics.hpp>
+#include "Textures.hpp"
+#include "system/Menu.hpp"
+#include <iostream>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(sf::Vector2u(200, 200)),
-                            "SFML works!");
-    sf::CircleShape  shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    bool loadedCorrectly = ED::Texture::loadTextures();
+    if (!loadedCorrectly) {
+        std::cerr << "Error: Failed to load textures" << std::endl;
+        return EXIT_FAILURE;
+    }
+    ED::System::Menu menu = ED::System::Menu();
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-        window.clear();
-        window.draw(shape);
-        window.display();
+    while (menu.isRunning()) {
+        menu.menuLoop();
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
