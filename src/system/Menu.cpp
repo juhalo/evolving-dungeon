@@ -4,6 +4,8 @@ namespace ED::System {
 Menu::Menu()
     : m_window(std::make_shared<sf::RenderWindow>(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName))
 {
+    m_window->setFramerateLimit(Constant::frameRate);
+    m_window->setKeyRepeatEnabled(false);
     initializeUI();
 }
 
