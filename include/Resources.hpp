@@ -10,7 +10,7 @@
  * @tparam ResourceType  Resource type
  * @tparam ID Identifier for a resource
  */
-template <typename ResourceType, typename ID>
+template <typename Resource, typename ID>
 class Resources {
 public:
     /**
@@ -27,7 +27,7 @@ public:
      * @param id Identifier of the resource
      * @return The resource object
      */
-    Resource& getResource(ID id);
+    Resource& resource(ID id);
 
     /**
      * @brief Get constant reference to the resource object
@@ -35,12 +35,14 @@ public:
      * @param id Identifier of the resource
      * @return Constant reference to the resource object
      */
-    const Resource& getResource(ID id) const;
+    const Resource& resource(ID id) const;
 
 private:
     /**
      * @brief Map of identifier to resource type
      *
      */
-    std::map<ID, std::unique_ptr<ResourceType>> m_resources;
+    std::map<ID, std::unique_ptr<Resource>> m_resources;
 };
+
+#include "Resources.inl"
