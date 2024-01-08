@@ -6,11 +6,11 @@
 #include <SFML/Window.hpp>
 #include <algorithm>
 
+namespace ED::System {
 /**
- * @brief Handles the main menu
+ * @brief Class for handling the main menu
  *
  */
-namespace ED::System {
 class Menu {
 public:
     /**

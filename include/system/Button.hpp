@@ -5,6 +5,10 @@
 #include <SFML/Graphics.hpp>
 
 namespace ED::System {
+/**
+ * @brief Class for clickable and non-clickable buttons
+ *
+ */
 class Button : public sf::Drawable {
 public:
     /**

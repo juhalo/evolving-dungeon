@@ -4,6 +4,12 @@
 #include <memory>
 #include <string>
 
+/**
+ * @brief Class for handling resource allocation
+ *
+ * @tparam ResourceType  Resource type
+ * @tparam ID Identifier for a resource
+ */
 template <typename ResourceType, typename ID>
 class Resources {
 public:
