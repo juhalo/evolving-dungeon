@@ -7,6 +7,7 @@ The project mostly uses [WebKit Code Style Guidelines](https://webkit.org/code-s
 -   [File Names](#file-names)
 -   [Namespaces](#namespaces)
 -   [Formatting](#formatting)
+-   [Templates](#templates)
 
 ## File Names
 
@@ -49,6 +50,6 @@ namespace InnerNamespace {
 
 Contrary to WebKit's style, after open bracket, aligning is performed.
 
-```
+## Templates
 
-```
+Definitions of template classes functions are inside ".inl" file. For example, if the class has a name "Things" and its header file is "Things.hpp", then the definitions are in a file called "Things.inl". "Things.inl" is included with a include statement at the bottom of "Things.hpp" file.
