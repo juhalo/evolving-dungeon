@@ -1,7 +1,7 @@
 template <typename Resource, typename ID>
 void Resources<Resource, ID>::load(ID id, const std::string& filename)
 {
-    std::unique_ptr<Resource> resource(new ResourceType());
+    std::unique_ptr<Resource> resource(new Resource());
     if (!resource->loadFromFile(filename)) {
         throw std::runtime_error("Resources::load - File loading failed for " + filename);
     }
@@ -17,7 +17,7 @@ Resource& Resources<Resource, ID>::resource(ID id)
 {
     auto found = m_resources.find(id);
     // In debug mode, checks that we did not reach the end pointer, i.e. check that the resource exists
-    assert(found != mResourceMap.end());
+    assert(found != m_resources.end());
     return *found->second;
 }
 
@@ -26,6 +26,6 @@ const Resource& Resources<Resource, ID>::resource(ID id) const
 {
     auto found = m_resources.find(id);
     // In debug mode, checks that we did not reach the end pointer, i.e. check that the resource exists
-    assert(found != mResourceMap.end());
+    assert(found != m_resources.end());
     return *found->second;
 }
