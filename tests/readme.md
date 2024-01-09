@@ -30,13 +30,13 @@
 
 ### Test: StaticFileLoading
 
-**Involved Classes: None**
+**Involved Classes: Resources (template)**
 
 **Involved Namespaces: sf, ED**
 
 **Test File: DungeonCrawlerTests.cpp**
 
-**Description: Make sure that evolved dungeon files work and textures/sounds get loaded**
+**Description: Make sure that evolved dungeon files work and textures/sounds/fonts get loaded**
 
 **Results: All passed**
 
@@ -46,7 +46,7 @@
 
 ### Test: BasicProperties
 
-**Involved Classes: Button**
+**Involved Classes: Button, Resources (template)**
 
 **Involved Namespaces: sf, ED, ED::System**
 
