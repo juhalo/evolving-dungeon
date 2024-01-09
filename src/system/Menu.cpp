@@ -88,6 +88,7 @@ void Menu::initializeUI()
 void Menu::loadResources()
 {
     m_fonts.load(ED::Font::ID::normal, "resources/fonts/PressStart2P.ttf");
+    m_textures.load(ED::Texture::ID::tiles, "resources/textures/tileset.png");
 }
 
 } // namespace ED::System

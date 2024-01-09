@@ -66,6 +66,12 @@ private:
     Fonts m_fonts;
 
     /**
+     * @brief Texture used
+     *
+     */
+    Textures m_textures;
+
+    /**
      * @brief Handle input events inside the menu
      *
      */
