@@ -1,18 +1,14 @@
-#include "Textures.hpp"
 #include "system/Menu.hpp"
 #include <iostream>
+#include <stdexcept>
 
 int main()
 {
-    bool loadedCorrectly = ED::Texture::loadTextures();
-    if (!loadedCorrectly) {
-        std::cerr << "Error: Failed to load textures" << std::endl;
-        return EXIT_FAILURE;
-    }
-    ED::System::Menu menu = ED::System::Menu();
-
-    while (menu.isRunning()) {
+    try {
+        ED::System::Menu menu = ED::System::Menu();
         menu.menuLoop();
+    } catch (std::exception& exception) {
+        std::cout << "\nEXCEPTION: " << exception.what() << std::endl;
     }
 
     return EXIT_SUCCESS;

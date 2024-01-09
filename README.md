@@ -4,16 +4,16 @@
 
 ## Table of Contents
 
-- [Project Implementation](#project-implementation)
-- [Implemented Features](#implemented-features)
-- [Working Practices](#working-practices)
-- [Testing](#testing)
-- [Source Code Documentation](#source-code-documentation)
-- [Credits](#credits)
+-   [Project Implementation](#project-implementation)
+-   [Implemented Features](#implemented-features)
+-   [Working Practices](#working-practices)
+-   [Testing](#testing)
+-   [Source Code Documentation](#source-code-documentation)
+-   [Credits](#credits)
 
 ## Project Implementation
 
-The project uses github submodules to get the required SFML libraries, as it does for the googletest when performing tests.
+The project uses GitHub submodules to get the required SFML libraries, as it does for the googletest when performing tests.
 
 If you are using Linux, make sure you have the [following](https://www.sfml-dev.org/tutorials/2.6/compile-with-cmake.php) installed for cmake to work correctly. One way of compiling the project with CMake when using Linux is to use the following commands:
 
@@ -29,11 +29,11 @@ You may also clone it normally and then run the command "git submodule init" fol
 
 ## Working Practices
 
-Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to main branch (in other words, the project follows a very simple, github flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, if necessary. If there is a need for a more complex workflow, such as git-flow, this will change.
+Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to the main branch (in other words, the project follows a very simple, GitHub flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, if necessary. If there is a need for a more complex workflow, such as git-flow, this will change.
 
-The coding style guide followed is the [WebKit Code Style Guidelines](https://www.sfml-dev.org/style.php) and it might use elements from [SFML Code Style Guide](https://www.sfml-dev.org/style.php) to make it consistent with the major library used throughout the project. The project might also use Google C++ style guide etc. to fill in some blanks. These changes are documented in the styleguide/ folders readme.
+The coding style guide followed is the [WebKit Code Style Guidelines](https://www.sfml-dev.org/style.php) and it might use elements from [SFML Code Style Guide](https://www.sfml-dev.org/style.php) to make it consistent with the major library used throughout the project. The project might also use Google C++ style guide etc. to fill in some blanks. These changes are documented in the styleguide/ folder's readme.
 
-Github Projects is used together with issues for organizing different parts that are planned to be completed.
+GitHub Projects is used together with issues for organizing different parts that are planned to be completed.
 
 ## Testing
 
@@ -48,7 +48,7 @@ Go to tests/ and then type the following:
 3. cd build
 4. ctest --rerun-failed --output-on-failure
 
-Valgrind checks are commented about at the folder tests/ as well.
+Valgrind checks are commented about in the folder tests/ as well.
 
 ## Source Code Documentation
 

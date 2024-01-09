@@ -1,16 +1,17 @@
 #pragma once
 
 #include "Constants.hpp"
+#include "Resources.hpp"
 #include "system/Button.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <algorithm>
 
+namespace ED::System {
 /**
- * @brief Handles the main menu
+ * @brief Class for handling the main menu
  *
  */
-namespace ED::System {
 class Menu {
 public:
     /**
@@ -44,7 +45,7 @@ private:
      * @brief The window object
      *
      */
-    std::shared_ptr<sf::RenderWindow> m_window;
+    sf::RenderWindow m_window;
 
     /**
      * @brief Event for keyboard input, closing of window etc.
@@ -56,8 +57,19 @@ private:
      * @brief Holds the UI of the menu
      *
      */
-    // Button m_UI;
     std::vector<Button> m_UI;
+
+    /**
+     * @brief Fonts used
+     *
+     */
+    Fonts m_fonts;
+
+    /**
+     * @brief Texture used
+     *
+     */
+    Textures m_textures;
 
     /**
      * @brief Handle input events inside the menu
@@ -82,5 +94,11 @@ private:
      *
      */
     void initializeUI();
+
+    /**
+     * @brief Load the resources used throughout the program
+     *
+     */
+    void loadResources();
 };
 } // namespace ED::System

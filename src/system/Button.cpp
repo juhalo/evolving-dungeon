@@ -1,10 +1,10 @@
 #include "system/Button.hpp"
 
 namespace ED::System {
-Button::Button(std::string text, sf::Vector2f position, sf::Color color, sf::Color fontColor, Constant::ButtonType type)
+Button::Button(std::string text, sf::Vector2f position, sf::Color color, sf::Color fontColor, Constant::ButtonType type, const Fonts& fonts)
     : m_position(position)
     , m_type(type)
-    , m_text(sf::Text(*Texture::font, text, 38))
+    , m_text(sf::Text(fonts.resource(ED::Font::ID::normal), text, 38))
 {
     m_text.setFillColor(fontColor);
     m_text.setOutlineColor(fontColor);

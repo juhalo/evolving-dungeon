@@ -1,22 +1,27 @@
 #pragma once
 
 #include "Constants.hpp"
-#include "Textures.hpp"
+#include "Resources.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace ED::System {
+/**
+ * @brief Class for clickable and non-clickable buttons
+ *
+ */
 class Button : public sf::Drawable {
 public:
     /**
      * @brief Construct a new Button object (button is also used for non-clickable objects)
      *
      * @param text Text inside the button
-     * @param pos Position of the button
+     * @param position Position of the button
      * @param color Color of the button
      * @param fontColor Color of the font
      * @param type Type of the button, e.g. is the button clickable or not
+     * @param fonts Fonts used in the game
      */
-    Button(std::string text, sf::Vector2f position, sf::Color color, sf::Color fontColor, Constant::ButtonType type);
+    Button(std::string text, sf::Vector2f position, sf::Color color, sf::Color fontColor, Constant::ButtonType type, const Fonts& fonts);
 
     /**
      * @brief Construct a new Button object (button is also used for non-clickable objects)
