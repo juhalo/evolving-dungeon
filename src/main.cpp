@@ -1,11 +1,18 @@
 #include "system/Menu.hpp"
 
+#include <iostream>
+#include <stdexcept>
+
 int main()
 {
-    ED::System::Menu menu = ED::System::Menu();
+    try {
+        ED::System::Menu menu = ED::System::Menu();
 
-    while (menu.isRunning()) {
-        menu.menuLoop();
+        while (menu.isRunning()) {
+            menu.menuLoop();
+        }
+    } catch (std::exception& exception) {
+        std::cout << "\nEXCEPTION: " << exception.what() << std::endl;
     }
 
     return EXIT_SUCCESS;
