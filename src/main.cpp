@@ -1,5 +1,4 @@
 #include "system/Menu.hpp"
-
 #include <iostream>
 #include <stdexcept>
 
@@ -7,10 +6,7 @@ int main()
 {
     try {
         ED::System::Menu menu = ED::System::Menu();
-
-        while (menu.isRunning()) {
-            menu.menuLoop();
-        }
+        menu.menuLoop();
     } catch (std::exception& exception) {
         std::cout << "\nEXCEPTION: " << exception.what() << std::endl;
     }

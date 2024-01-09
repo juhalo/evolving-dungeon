@@ -15,8 +15,10 @@ Menu::~Menu() { }
 
 void Menu::menuLoop()
 {
-    pollEvent();
-    render();
+    while (isRunning()) {
+        pollEvent();
+        render();
+    }
 }
 
 bool Menu::isRunning() const
