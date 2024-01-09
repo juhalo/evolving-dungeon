@@ -45,7 +45,7 @@ private:
      * @brief The window object
      *
      */
-    std::shared_ptr<sf::RenderWindow> m_window;
+    sf::RenderWindow m_window;
 
     /**
      * @brief Event for keyboard input, closing of window etc.

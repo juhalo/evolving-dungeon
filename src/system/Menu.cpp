@@ -2,11 +2,11 @@
 
 namespace ED::System {
 Menu::Menu()
-    : m_window(std::make_shared<sf::RenderWindow>(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName))
+    : m_window(sf::RenderWindow(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName))
     , m_fonts()
 {
-    m_window->setFramerateLimit(Constant::frameRate);
-    m_window->setKeyRepeatEnabled(false);
+    m_window.setFramerateLimit(Constant::frameRate);
+    m_window.setKeyRepeatEnabled(false);
     loadResources();
     initializeUI();
 }
@@ -23,29 +23,29 @@ void Menu::menuLoop()
 
 bool Menu::isRunning() const
 {
-    return m_window->isOpen();
+    return m_window.isOpen();
 }
 
 void Menu::pollEvent()
 {
-    while (m_window->pollEvent(m_event)) {
+    while (m_window.pollEvent(m_event)) {
         switch (m_event.type) {
         case sf::Event::Closed:
-            m_window->close();
+            m_window.close();
             break;
         case sf::Event::KeyPressed:
             if (m_event.key.code == sf::Keyboard::Key::Delete) {
-                m_window->close();
+                m_window.close();
                 break;
             }
         case sf::Event::MouseButtonPressed:
-            const sf::Vector2i& clickPosition = sf::Mouse::getPosition(*m_window);
+            const sf::Vector2i& clickPosition = sf::Mouse::getPosition(m_window);
             auto isClickable = [=](Button i) { return i.clickButton(clickPosition); };
             auto it = std::find_if(m_UI.begin(), m_UI.end(), isClickable);
             if (it != m_UI.end()) {
                 switch (it->type()) {
                 case Constant::ButtonType::quitToDesktop:
-                    m_window->close();
+                    m_window.close();
                     break;
                 case Constant::ButtonType::startGame:
                     break; // FIXME: Start a game if this button is clicked
@@ -61,19 +61,19 @@ void Menu::pollEvent()
 void Menu::drawUI()
 {
     for (auto& element : m_UI)
-        m_window->draw(element);
+        m_window.draw(element);
 }
 
 void Menu::render()
 {
-    m_window->clear();
+    m_window.clear();
     drawUI();
-    m_window->display();
+    m_window.display();
 }
 
 void Menu::initializeUI()
 {
-    sf::Vector2u windowSize = m_window->getSize();
+    sf::Vector2u windowSize = m_window.getSize();
     float numOfElements = 2;
     unsigned y = windowSize.y;
     unsigned x = windowSize.x;
