@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.hpp"
+#include "Resources.hpp"
 #include "system/Button.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -56,8 +57,13 @@ private:
      * @brief Holds the UI of the menu
      *
      */
-    // Button m_UI;
     std::vector<Button> m_UI;
+
+    /**
+     * @brief Fonts used
+     *
+     */
+    Fonts m_fonts;
 
     /**
      * @brief Handle input events inside the menu
@@ -82,5 +88,11 @@ private:
      *
      */
     void initializeUI();
+
+    /**
+     * @brief Load the resources used throughout the program
+     *
+     */
+    void loadResources();
 };
 } // namespace ED::System

@@ -3,9 +3,11 @@
 namespace ED::System {
 Menu::Menu()
     : m_window(std::make_shared<sf::RenderWindow>(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName))
+    , m_fonts()
 {
     m_window->setFramerateLimit(Constant::frameRate);
     m_window->setKeyRepeatEnabled(false);
+    loadResources();
     initializeUI();
 }
 
@@ -77,8 +79,13 @@ void Menu::initializeUI()
     float middleX = x / 2;
     unsigned i = 0;
 
-    m_UI.push_back(Button("Start a new game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::startGame));
-    m_UI.push_back(Button("Quit game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::quitToDesktop));
+    m_UI.push_back(Button("Start a new game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::startGame, m_fonts));
+    m_UI.push_back(Button("Quit game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::quitToDesktop, m_fonts));
+}
+
+void Menu::loadResources()
+{
+    m_fonts.load(ED::Font::ID::normal, "resources/fonts/PressStart2P.ttf");
 }
 
 } // namespace ED::System
