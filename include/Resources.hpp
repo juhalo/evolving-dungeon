@@ -11,6 +11,7 @@
  *
  * @tparam ResourceType  Resource type
  * @tparam ID Identifier for a resource
+ * @note Heavily inspired by the book SFML Game Development by Artur Moreira etc.
  */
 template <typename Resource, typename ID>
 class Resources {
