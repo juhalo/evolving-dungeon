@@ -2,7 +2,7 @@
 
 namespace ED::System {
 Menu::Menu()
-    : m_window(sf::RenderWindow(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName))
+    : m_window(sf::VideoMode(sf::Vector2u(Constant::windowWidth, Constant::windowHeight)), Constant::gameName, sf::Style::Close)
     , m_fonts()
 {
     m_window.setFramerateLimit(Constant::frameRate);
