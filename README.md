@@ -58,6 +58,37 @@ You may also clone it normally and then run the command "git submodule init" fol
 
 Scene graph is more complex than is currently needed, therefore it is not a high priority. Online high scores may or may not be implemented.
 
+### High-level structure
+
+```mermaid
+classDiagram
+direction RL
+Game <-- Menu
+Game <-- Level
+Game *-- Player
+class Resources
+<<interface>> Resources
+Game *-- Resources
+Game o-- Button
+Level *-- TileMap
+Level o-- Player
+Level *-- Monster
+Game <-- Item
+Creature <|-- Monster
+Creature <|-- Player
+Item <|-- Weapon
+Item <|-- Potion
+Item <|-- Armor
+```
+
+Menu handles game creation as well as saving and loading the a game. Menu is also responsible for loading in the textures/sounds/fonts.
+
+Game handles game logic, user input during game, time keeping and calling level's update and drawing functionality.
+
+Level handles rendering and updating level, monsters and the player.
+
+Tile map holds information about the currently loaded level's background and draws it.
+
 ## Working Practices
 
 Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to the main branch (in other words, the project follows a very simple, GitHub flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, if necessary. If there is a need for a more complex workflow, such as git-flow, this will change.
