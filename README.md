@@ -18,11 +18,14 @@ The project uses GitHub submodules to get the required SFML libraries, as it doe
 
 If you are using Linux, make sure you have the [following](https://www.sfml-dev.org/tutorials/2.6/compile-with-cmake.php) installed for cmake to work correctly. One way of compiling the project with CMake when using Linux is to use the following commands:
 
-1. git clone --recurse-submodules https://github.com/juhalo/evolving-dungeon.git
-2. cd evolving-dungeon
-3. cmake -S ./ -B ./build
-4. cmake --build build
-5. ./build/bin/EvolvingDungeon
+```bash
+git clone --recurse-submodules https://github.com/juhalo/evolving-dungeon.git
+cd evolving-dungeon
+cmake -S ./ -B ./build
+cmake --build build
+./build/bin/EvolvingDungeon
+
+```
 
 You may also clone it normally and then run the command "git submodule init" followed by the command "git submodule update" instead of the --recurse-submodules tag.
 
@@ -161,10 +164,13 @@ Testing can be found under tests/ folder and it has a readme.md that goes into m
 
 Go to tests/ and then type the following:
 
-1. cmake -S . -B build
-2. cmake --build build
-3. cd build
-4. ctest --rerun-failed --output-on-failure
+```bash
+cmake -S . -B build
+cmake --build build
+cd build
+ctest --rerun-failed --output-on-failure
+
+```
 
 Valgrind checks are commented about in the folder tests/ as well.
 
