@@ -5,6 +5,7 @@
 ## Table of Contents
 
 -   [Project Implementation](#project-implementation)
+-   [Plan](#plan)
 -   [Implemented Features](#implemented-features)
 -   [Working Practices](#working-practices)
 -   [Testing](#testing)
@@ -25,7 +26,37 @@ If you are using Linux, make sure you have the [following](https://www.sfml-dev.
 
 You may also clone it normally and then run the command "git submodule init" followed by the command "git submodule update" instead of the --recurse-submodules tag.
 
-## Implemented Features
+## Plan
+
+### (Planned) Features
+
+-   [ ] Animations
+-   [ ] Combat
+-   [ ] Customizable key bindings
+-   [ ] Friendly NPCs
+-   [ ] Game UI
+-   [ ] High scores
+-   [ ] Item crafting
+-   [ ] Items
+-   [ ] Level
+-   [x] Menu
+-   [ ] Minimap
+-   [ ] Movement of other creatures
+-   [ ] Movement of player
+-   [ ] Online high scores
+-   [ ] Player progression (skills etc.)
+-   [ ] Player quests
+-   [ ] Player skills
+-   [ ] Randomly generated items
+-   [ ] Random generated levels
+-   [ ] Saving and loading functionality
+-   [ ] Scene graph
+-   [ ] Sound
+-   [ ] Textures
+-   [ ] Tile map
+-   [ ] Win/lose conditions
+
+Scene graph is more complex than is currently needed, therefore it is not a high priority. Online high scores may or may not be implemented.
 
 ## Working Practices
 
