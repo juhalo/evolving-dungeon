@@ -150,6 +150,9 @@ git checkout -b temp/new-feature
 git rebase origin/main
 git checkout feature/new-feature
 git merge temp/new-feature
+
+# Tagging is used for releases, lightweight tags are discourgaged
+git tag -a v1.4.0 -m "my version 1.4.0"
 ```
 
 The coding style guide followed is the [WebKit Code Style Guidelines](https://www.sfml-dev.org/style.php) and it might use elements from [SFML Code Style Guide](https://www.sfml-dev.org/style.php) to make it consistent with the major library used throughout the project. The project might also use Google C++ style guide etc. to fill in some blanks. These changes are documented in the styleguide/ folder's readme.
