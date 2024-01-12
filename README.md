@@ -91,7 +91,63 @@ Tile map holds information about the currently loaded level's background and dra
 
 ## Working Practices
 
-Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to the main branch (in other words, the project follows a very simple, GitHub flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, if necessary. If there is a need for a more complex workflow, such as git-flow, this will change.
+Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to the main branch (in other words, the project follows a very simple, GitHub flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, whenever necessary. If there is a need for a more complex workflow, such as git-flow, these practices will/might change.
+
+Git tags will be used to denote releases. Here _v1.4.2_ stands for second hotfix of the fourth minor release of the first major release. Every major release should we very stable and every minor release should aim to be as stable as possible. _v1.4.0-rc1_ is first candidate for v1.4.0.
+
+The golden rule of git rebase is to never use it on public branches is followed (rebase may be used on local main with origin/main, but not with any other branch, i.e. _git pull --rebase origin main_, whe on local main branch). In general, rebasing local changes that have been made, but haven't been shared yet, before pushing them in order to clean up the story, is fine, but rebasing anything that has been pushed to upstream should be avoided unless specified in this README. When rebasing, creating a copy of branch for safe keeping is advised. This branch should have the prefix _temp/_ and it should be fast forward merged after rebasing to avoid unnecessary merge commit. Also, rebase from main to feature/bugfix branch if main has changed is allowed and encouraged.
+
+The full git usage guidelines for this project are as follows (huge credit to [atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)):
+
+```bash
+# How to create a branch
+git checkout main
+git pull --rebase origin main
+git checkout -b feature/new-feature
+
+# Use small, incremental commits
+git add src/file.cpp
+git add include/file.hpp
+# If single line commit message is enough
+git commit -m "Do something"
+# end if
+# Else if you wish to use text editor for bigger/multi-line message
+git commit
+# end if
+
+# Push branch for pull request; note if branch has been pushed upstream, do NOT use rebase anymore for the branch
+git push origin feature/new-feature
+
+# If tracking connection wants to be made; note if branch has been pushed upstream, do NOT use rebase anymore for the branch
+git push -u origin feature/new-feature
+
+# Pulling from feature branch that has been pushed to upstream
+git pull --rebase origin feature/new-feature
+
+# After doing pull request in GitHub
+git checkout main
+git fetch -p
+git branch -d feature/new-feature
+# Or
+git branch -D feature/new-feature
+
+# Use this to change/combine commits in LOCAL branch that has NOT been pushed upstream, do on temp/ branch to make sure no funny business occurs, rebase is a destructive operation
+git checkout feature/new-feature
+git checkout -b temp/new-feature
+git merge-base temp/new-feature main
+# This returns the COMMIT_ID of the original base
+git rebase -i COMMIT_ID
+git checkout feature/new-feature
+git merge temp/new-feature
+
+# If main has been changed in-between creating this branch and current moment, do NOT use otherwise, temp/ branch is merged without fast forwarding to not have a merge commit
+git checkout feature/new-feature
+git fetch origin
+git checkout -b temp/new-feature
+git rebase origin/main
+git checkout feature/new-feature
+git merge temp/new-feature
+```
 
 The coding style guide followed is the [WebKit Code Style Guidelines](https://www.sfml-dev.org/style.php) and it might use elements from [SFML Code Style Guide](https://www.sfml-dev.org/style.php) to make it consistent with the major library used throughout the project. The project might also use Google C++ style guide etc. to fill in some blanks. These changes are documented in the styleguide/ folder's readme.
 
