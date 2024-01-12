@@ -181,3 +181,5 @@ Doxygen was used for documentation and creation of the pdf. The generated pdf fi
 ## Credits
 
 Font used by Cody "CodeMan38" Boisclair under the SIL Open Font License, Version 1.1, from [here](https://www.zone38.net/font/)
+
+The book [SFML Game Development](https://www.packtpub.com/product/sfml-game-development/9781849696845) by Artur Moreira, Henrik Vogelius Hansson and Jan Haller. This book taught me a whole lot about SFML game development and game development in general (before this project I have not had proper experience with game development).
