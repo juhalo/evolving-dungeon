@@ -100,6 +100,8 @@ Git tags will be used to denote releases. Here _v1.4.2_ stands for second hotfix
 
 The golden rule of git rebase is to never use it on public branches is followed (rebase may be used on local main with origin/main, but not with any other branch, i.e. _git pull --rebase origin main_, whe on local main branch). In general, rebasing local changes that have been made, but haven't been shared yet, before pushing them in order to clean up the story, is fine, but rebasing anything that has been pushed to upstream should be avoided unless specified in this README. When rebasing, creating a copy of branch for safe keeping is advised. This branch should have the prefix _temp/_ and it should be fast forward merged after rebasing to avoid unnecessary merge commit. Also, rebase from main to feature/bugfix branch if main has changed is allowed and encouraged.
 
+After pushing the feature or bugfix branch to origin, create a corresponding pull request. If the merge would close an issue and it has not been put to be resolved in one of the commit messages related to the merge, then in the description of the merge it should read _closes #43_ or something similar accepted by GitHub. This closes the issue automatically.
+
 The full git usage guidelines for this project are as follows (huge credit to [atlassian](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)):
 
 ```bash
