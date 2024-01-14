@@ -11,6 +11,10 @@
 #include <algorithm>
 
 namespace ED::System {
+/**
+ * @brief The class responsible for running the application
+ *
+ */
 class Game {
 public:
     /**

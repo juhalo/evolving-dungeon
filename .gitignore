@@ -53,3 +53,8 @@ build/
 .vscode/
 .idea/
 .vs/
+
+# Doxygen
+Doxyfile
+latex/
+html/
