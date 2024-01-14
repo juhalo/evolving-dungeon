@@ -68,6 +68,18 @@ private:
     sf::RenderWindow& m_window;
 
     /**
+     * @brief Holds the UI of the pause menu
+     *
+     */
+    std::vector<Button> m_UI;
+
+    /**
+     * @brief Background of the pause menu
+     *
+     */
+    sf::RectangleShape m_background;
+
+    /**
      * @brief Menu state of the game
      *
      */
@@ -78,5 +90,11 @@ private:
      *
      */
     PlayingState* m_playingState;
+
+    /**
+     * @brief Initialize the UI of the menu screen
+     *
+     */
+    void initializeUI(const Fonts& fonts);
 };
 };
