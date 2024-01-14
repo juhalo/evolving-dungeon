@@ -32,10 +32,6 @@ GameState* PausedState::handleEvent(const sf::Event& event)
             break;
         }
         if (event.key.code == sf::Keyboard::Key::Escape) {
-            return m_menuState;
-            break;
-        }
-        if (event.key.code == sf::Keyboard::Key::Space) {
             return m_playingState;
             break;
         }
