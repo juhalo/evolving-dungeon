@@ -47,6 +47,7 @@ You may also clone it normally and then run the command "git submodule init" fol
 -   [ ] Movement of other creatures
 -   [ ] Movement of player
 -   [ ] Online high scores
+-   [x] Pause menu
 -   [ ] Player progression (skills etc.)
 -   [ ] Player quests
 -   [ ] Player skills
@@ -55,6 +56,8 @@ You may also clone it normally and then run the command "git submodule init" fol
 -   [ ] Saving and loading functionality
 -   [ ] Scene graph
 -   [ ] Sound
+-   [ ] Stack of states for different game states
+-   [x] State pattern for different game states
 -   [ ] Textures
 -   [ ] Tile map
 -   [ ] Win/lose conditions
@@ -92,13 +95,30 @@ Level handles rendering and updating level, monsters and the player.
 
 Tile map holds information about the currently loaded level's background and draws it.
 
+### State Pattern
+
+The game uses state pattern for handling different states (menu, ongoing game, paused game, end screen etc.) of the game. In the future this may be expanded/changed to use stack of states. Entities might also use state pattern when they are implemented.
+
+The current (implemented) potential states of the game are:
+
+```mermaid
+flowchart LR
+    MenuState -->|press play|PlayingState
+    PlayingState -->|press escape|PausedState
+    PausedState -->|press escape|PlayingState
+    PausedState -->MenuState
+    PlayingState -->|game over|MenuState
+```
+
+Note that "game over" has not been implemented yet and at some point there will also be a state to signify the end screen (implementing game over with transition to menu straight away will be an in-between step; this is also why PlayingState still has a pointer to MenuState).
+
 ## Working Practices
 
 Uses feature and hotfix branches. Feature branches will be named feature/my-feature and hotfixes will be named hotfix/my-hotfix. Only when everything is working, it is merged to the main branch (in other words, the project follows a very simple, GitHub flow type of workflow which is currently more than necessary for a single person). Releases will be generated for different versions of the game, whenever necessary. If there is a need for a more complex workflow, such as git-flow, these practices will/might change.
 
 Git tags will be used to denote releases. Here _v1.4.2_ stands for second hotfix of the fourth minor release of the first major release. Every major release should we very stable and every minor release should aim to be as stable as possible. _v1.4.0-rc1_ is first candidate for v1.4.0.
 
-The golden rule of git rebase is to never use it on public branches is followed (rebase may be used on local main with origin/main, but not with any other branch, i.e. _git pull --rebase origin main_, whe on local main branch). In general, rebasing local changes that have been made, but haven't been shared yet, before pushing them in order to clean up the story, is fine, but rebasing anything that has been pushed to upstream should be avoided unless specified in this README. When rebasing, creating a copy of branch for safe keeping is advised. This branch should have the prefix _temp/_ and it should be fast forward merged after rebasing to avoid unnecessary merge commit. Also, rebase from main to feature/bugfix branch if main has changed is allowed and encouraged.
+The golden rule of git rebase is to never use it on public branches is followed (rebase may be used on local main with origin/main, but not with any other branch, i.e. _git pull --rebase origin main_, when on local main branch). In general, rebasing local changes that have been made, but haven't been shared yet, before pushing them in order to clean up the story, is fine, but rebasing anything that has been pushed to upstream should be avoided unless specified in this README. When rebasing, creating a copy of branch for safe keeping is advised. This branch should have the prefix _temp/_ and it should be fast forward merged after rebasing to avoid unnecessary merge commit. Also, rebase from main to feature/bugfix branch if main has changed is allowed and encouraged.
 
 After pushing the feature or bugfix branch to origin, create a corresponding pull request. If the merge would close an issue and it has not been put to be resolved in one of the commit messages related to the merge, then in the description of the merge it should read _closes #43_ or something similar accepted by GitHub. This closes the issue automatically.
 
@@ -132,8 +152,6 @@ git pull --rebase origin feature/new-feature
 # After doing pull request in GitHub
 git checkout main
 git fetch -p
-git branch -d feature/new-feature
-# Or
 git branch -D feature/new-feature
 
 # Use this to change/combine commits in LOCAL branch that has NOT been pushed upstream, do on temp/ branch to make sure no funny business occurs, rebase is a destructive operation
@@ -143,17 +161,17 @@ git merge-base temp/new-feature main
 # This returns the COMMIT_ID of the original base
 git rebase -i COMMIT_ID
 git checkout feature/new-feature
-git merge temp/new-feature
+git reset --hard temp/new-feature
 
-# If main has been changed in-between creating this branch and current moment, do NOT use otherwise, temp/ branch is merged without fast forwarding to not have a merge commit
+# If main has been changed in-between creating this branch and current moment, do NOT use otherwise
 git checkout feature/new-feature
 git fetch origin
 git checkout -b temp/new-feature
 git rebase origin/main
 git checkout feature/new-feature
-git merge temp/new-feature
+git reset --hard temp/new-feature
 
-# Tagging is used for releases, lightweight tags are discourgaged
+# Tagging is used for releases, lightweight tags are discouraged
 git tag -a v1.4.0 -m "my version 1.4.0"
 ```
 
