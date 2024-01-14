@@ -12,11 +12,9 @@ void PlayingState::update(sf::Time)
 
 void PlayingState::render()
 {
-    m_window.clear();
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     m_window.draw(shape);
-    m_window.display();
 }
 
 GameState* PlayingState::handleEvent(const sf::Event& event)
@@ -34,6 +32,10 @@ GameState* PlayingState::handleEvent(const sf::Event& event)
             return m_menuState;
             break;
         }
+        if (event.key.code == sf::Keyboard::Key::Space) {
+            return m_pausedState;
+            break;
+        }
     }
     return nullptr; // no transition (currently)
 }
@@ -41,5 +43,10 @@ GameState* PlayingState::handleEvent(const sf::Event& event)
 void PlayingState::setMenuState(MenuState& menuState)
 {
     m_menuState = &menuState;
+}
+
+void PlayingState::setPausedState(PausedState& pausedState)
+{
+    m_pausedState = &pausedState;
 }
 };

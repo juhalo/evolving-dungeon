@@ -4,7 +4,7 @@
 #include "Resources.hpp"
 #include "system/Button.hpp"
 #include "system/states/MenuState.hpp"
-// #include "system/states/PausedState.hpp"
+#include "system/states/PausedState.hpp"
 #include "system/states/PlayingState.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -49,7 +49,12 @@ private:
      *
      */
     MenuState m_menuState;
-    // PausedState m_pausedState;
+
+    /**
+     * @brief Paused state of the game
+     *
+     */
+    PausedState m_pausedState;
 
     /**
      * @brief Ongoing game part of the game

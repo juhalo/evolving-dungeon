@@ -148,8 +148,6 @@ git pull --rebase origin feature/new-feature
 # After doing pull request in GitHub
 git checkout main
 git fetch -p
-git branch -d feature/new-feature
-# Or
 git branch -D feature/new-feature
 
 # Use this to change/combine commits in LOCAL branch that has NOT been pushed upstream, do on temp/ branch to make sure no funny business occurs, rebase is a destructive operation
@@ -159,17 +157,17 @@ git merge-base temp/new-feature main
 # This returns the COMMIT_ID of the original base
 git rebase -i COMMIT_ID
 git checkout feature/new-feature
-git merge temp/new-feature
+git reset --hard temp/new-feature
 
-# If main has been changed in-between creating this branch and current moment, do NOT use otherwise, temp/ branch is merged without fast forwarding to not have a merge commit
+# If main has been changed in-between creating this branch and current moment, do NOT use otherwise
 git checkout feature/new-feature
 git fetch origin
 git checkout -b temp/new-feature
 git rebase origin/main
 git checkout feature/new-feature
-git merge temp/new-feature
+git reset --hard temp/new-feature
 
-# Tagging is used for releases, lightweight tags are discourgaged
+# Tagging is used for releases, lightweight tags are discouraged
 git tag -a v1.4.0 -m "my version 1.4.0"
 ```
 

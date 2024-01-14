@@ -13,10 +13,8 @@ void MenuState::update(sf::Time)
 
 void MenuState::render()
 {
-    m_window.clear();
     for (auto& element : m_UI)
         m_window.draw(element);
-    m_window.display();
 }
 
 GameState* MenuState::handleEvent(const sf::Event& event)
@@ -41,7 +39,7 @@ GameState* MenuState::handleEvent(const sf::Event& event)
                 break;
             case Constant::ButtonType::startGame:
                 return m_playingState;
-                break; // FIXME: Return PlayingState here instead
+                break;
             default: // Do nothing;
                 break;
             }

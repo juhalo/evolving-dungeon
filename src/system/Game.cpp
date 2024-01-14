@@ -5,6 +5,7 @@ Game::Game()
     : m_window(init(), Constant::gameName, sf::Style::Close)
     , m_menuState(MenuState(m_window, m_fonts))
     , m_playingState(PlayingState(m_window, m_fonts, m_textures))
+    , m_pausedState(PausedState(m_window, m_fonts))
     , m_currentState(&m_menuState)
     , m_fonts()
     , m_textures()
@@ -13,7 +14,10 @@ Game::Game()
     m_window.setKeyRepeatEnabled(false);
 
     m_playingState.setMenuState(m_menuState);
+    m_playingState.setPausedState(m_pausedState);
     m_menuState.setPlayingState(m_playingState);
+    m_pausedState.setMenuState(m_menuState);
+    m_pausedState.setPlayingState(m_playingState);
 }
 void Game::run()
 {
@@ -28,7 +32,9 @@ void Game::run()
 
         auto deltaTime = clock.restart();
         m_currentState->update(deltaTime);
+        m_window.clear();
         m_currentState->render();
+        m_window.display();
     }
 }
 
