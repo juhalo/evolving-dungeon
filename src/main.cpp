@@ -1,12 +1,12 @@
-#include "system/Menu.hpp"
+#include "system/Game.hpp"
 #include <iostream>
 #include <stdexcept>
 
 int main()
 {
     try {
-        ED::System::Menu menu = ED::System::Menu();
-        menu.menuLoop();
+        ED::System::Game game = ED::System::Game();
+        game.run();
     } catch (std::exception& exception) {
         std::cout << "\nEXCEPTION: " << exception.what() << std::endl;
     }
