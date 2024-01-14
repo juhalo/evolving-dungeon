@@ -55,6 +55,8 @@ You may also clone it normally and then run the command "git submodule init" fol
 -   [ ] Saving and loading functionality
 -   [ ] Scene graph
 -   [ ] Sound
+-   [ ] Stack of states for different game states
+-   [ ] State pattern for different game states
 -   [ ] Textures
 -   [ ] Tile map
 -   [ ] Win/lose conditions
@@ -91,6 +93,20 @@ Game handles game logic, user input during game, time keeping and calling level'
 Level handles rendering and updating level, monsters and the player.
 
 Tile map holds information about the currently loaded level's background and draws it.
+
+### State Pattern
+
+The game uses state pattern for handling different states (menu, ongoing game, paused game, end screen etc.) of the game. In the future this may be expanded/changed to use stack of states. Entities might also use state pattern when they are implemented.
+
+The current (implemented) potential states of the game are:
+
+```mermaid
+flowchart LR
+    MenuState -->|press play|PlayingState
+    PlayingState -->|press space bar|PausedState
+    PausedState -->|press space bar|PlayingState
+    PausedState -->|press delete|MenuState
+```
 
 ## Working Practices
 
