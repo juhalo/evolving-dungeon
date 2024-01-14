@@ -4,12 +4,16 @@ namespace ED::System {
 Game::Game()
     : m_window(init(), Constant::gameName, sf::Style::Close)
     , m_menuState(MenuState(m_window, m_fonts))
+    , m_playingState(PlayingState(m_window, m_fonts, m_textures))
     , m_currentState(&m_menuState)
     , m_fonts()
     , m_textures()
 {
     m_window.setFramerateLimit(Constant::frameRate);
     m_window.setKeyRepeatEnabled(false);
+
+    m_playingState.setMenuState(m_menuState);
+    m_menuState.setPlayingState(m_playingState);
 }
 void Game::run()
 {

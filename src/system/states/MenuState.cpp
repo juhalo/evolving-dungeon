@@ -40,6 +40,7 @@ GameState* MenuState::handleEvent(const sf::Event& event)
                 m_window.close();
                 break;
             case Constant::ButtonType::startGame:
+                return m_playingState;
                 break; // FIXME: Return PlayingState here instead
             default: // Do nothing;
                 break;
@@ -62,5 +63,10 @@ void MenuState::initializeUI(const Fonts& fonts)
 
     m_UI.push_back(Button("Start a new game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::startGame, fonts));
     m_UI.push_back(Button("Quit game", sf::Vector2f(middleX, (i++ / numOfElements) * y + middleY), sf::Color::White, sf::Color::Black, ED::Constant::ButtonType::quitToDesktop, fonts));
+}
+
+void MenuState::setPlayingState(PlayingState& playingState)
+{
+    m_playingState = &playingState;
 }
 };

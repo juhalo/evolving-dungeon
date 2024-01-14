@@ -5,7 +5,7 @@
 #include "system/Button.hpp"
 #include "system/states/MenuState.hpp"
 // #include "system/states/PausedState.hpp"
-// #include "system/states/PlayingState.hpp"
+#include "system/states/PlayingState.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <algorithm>
@@ -50,7 +50,12 @@ private:
      */
     MenuState m_menuState;
     // PausedState m_pausedState;
-    // PlayingState m_playingState;
+
+    /**
+     * @brief Ongoing game part of the game
+     *
+     */
+    PlayingState m_playingState;
 
     /**
      * @brief Current state of the game

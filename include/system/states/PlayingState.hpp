@@ -46,11 +46,24 @@ public:
      */
     void render() final;
 
+    /**
+     * @brief Set the Playing State object
+     *
+     * @param menuState The new menu state object
+     */
+    void setMenuState(MenuState& menuState);
+
 private:
     /**
      * @brief The window object
      *
      */
     sf::RenderWindow& m_window;
+
+    /**
+     * @brief Menu state of the game
+     *
+     */
+    MenuState* m_menuState;
 };
 };

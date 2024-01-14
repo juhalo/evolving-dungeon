@@ -6,10 +6,13 @@
 #include "Resources.hpp"
 #include "system/Button.hpp"
 #include "system/states/GameState.hpp"
+#include "system/states/PlayingState.hpp"
 #include <SFML/Graphics.hpp>
 #include <algorithm>
 
 namespace ED::System {
+
+class PlayingState;
 /**
  * @brief Class for the state of the game when inside menu
  *
@@ -43,6 +46,13 @@ public:
      */
     void render() final;
 
+    /**
+     * @brief Set the Playing State object
+     *
+     * @param playingState The new playing state object
+     */
+    void setPlayingState(PlayingState& playingState);
+
 private:
     /**
      * @brief The window object
@@ -55,6 +65,12 @@ private:
      *
      */
     std::vector<Button> m_UI;
+
+    /**
+     * @brief Playing state of the game
+     *
+     */
+    PlayingState* m_playingState;
 
     /**
      * @brief Initialize the UI of the menu screen

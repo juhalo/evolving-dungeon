@@ -31,9 +31,15 @@ GameState* PlayingState::handleEvent(const sf::Event& event)
             break;
         }
         if (event.key.code == sf::Keyboard::Key::Escape) {
+            return m_menuState;
             break;
         }
     }
     return nullptr; // no transition (currently)
+}
+
+void PlayingState::setMenuState(MenuState& menuState)
+{
+    m_menuState = &menuState;
 }
 };
