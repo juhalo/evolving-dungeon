@@ -152,6 +152,8 @@ git pull --rebase origin feature/new-feature
 # After doing pull request in GitHub
 git checkout main
 git fetch -p
+git branch -d feature/new-feature
+# Only do the following if you have to and you know what you are doing
 git branch -D feature/new-feature
 
 # Use this to change/combine commits in LOCAL branch that has NOT been pushed upstream, do on temp/ branch to make sure no funny business occurs, rebase is a destructive operation
@@ -162,6 +164,9 @@ git merge-base temp/new-feature main
 git rebase -i COMMIT_ID
 git checkout feature/new-feature
 git reset --hard temp/new-feature
+git branch -d temp/new-feature
+# Only do the following if you have to and you know what you are doing
+git branch -D temp/new-feature
 
 # If main has been changed in-between creating this branch and current moment, do NOT use otherwise
 git checkout feature/new-feature
