@@ -41,7 +41,7 @@ You may also clone it normally and then run the command "git submodule init" fol
 -   [ ] High scores
 -   [ ] Item crafting
 -   [ ] Items
--   [ ] Level
+-   [x] Level (currently very simple)
 -   [x] Menu
 -   [ ] Minimap
 -   [ ] Movement of other creatures
@@ -59,7 +59,7 @@ You may also clone it normally and then run the command "git submodule init" fol
 -   [ ] Stack of states for different game states
 -   [x] State pattern for different game states
 -   [ ] Textures
--   [ ] Tile map
+-   [x] Tile map
 -   [ ] Win/lose conditions
 
 Scene graph is more complex than is currently needed, therefore it is not a high priority. Online high scores may or may not be implemented.

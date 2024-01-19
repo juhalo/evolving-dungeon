@@ -3,6 +3,7 @@
 namespace ED::System {
 PlayingState::PlayingState(sf::RenderWindow& window, const Fonts& fonts, const Textures& textures)
     : m_window(window)
+    , m_level(Level(fonts, textures, sf::Vector2u(ED::Constant::tileMapWidth, ED::Constant::tileMapHeight)))
 {
 }
 
@@ -12,9 +13,7 @@ void PlayingState::update(sf::Time)
 
 void PlayingState::render()
 {
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-    m_window.draw(shape);
+    m_window.draw(m_level.tileMap());
 }
 
 GameState* PlayingState::handleEvent(const sf::Event& event)

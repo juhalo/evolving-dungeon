@@ -21,6 +21,30 @@ namespace Constant {
     static unsigned windowWidth = 1000;
 
     /**
+     * @brief Width of the tile map
+     *
+     */
+    static unsigned tileMapWidth = 16;
+
+    /**
+     * @brief Height of the tile map
+     *
+     */
+    static unsigned tileMapHeight = 8;
+
+    /**
+     * @brief Width of the tile
+     *
+     */
+    static unsigned tileWidth = 32;
+
+    /**
+     * @brief Height of the tile
+     *
+     */
+    static unsigned tileHeight = 32;
+
+    /**
      * @brief Frame rate of the window
      *
      */
