@@ -3,6 +3,7 @@
 #include "Constants.hpp"
 #include "Resources.hpp"
 #include "system/Button.hpp"
+#include "system/Level.hpp"
 #include "system/states/GameState.hpp"
 #include "system/states/MenuState.hpp"
 #include "system/states/PausedState.hpp"
@@ -80,5 +81,11 @@ private:
      *
      */
     PausedState* m_pausedState;
+
+    /**
+     * @brief Current level of the game
+     *
+     */
+    Level m_level;
 };
 };
